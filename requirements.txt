@@ -1,3 +1,5 @@
+pillow
 pyqt5
 pyautogui
 pynput
+cx_freeze
