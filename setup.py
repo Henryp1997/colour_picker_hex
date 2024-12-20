@@ -5,7 +5,8 @@ executables = [
     cx_Freeze.Executable(
         f"{os.path.dirname(os.path.realpath(__file__))}/app.py",
         base="Win32GUI",
-        target_name="colourPicker.exe"
+        target_name="colourPicker.exe",
+        icon=f"{os.path.dirname(os.path.realpath(__file__))}/icon.ico"
     )
 ]
 
