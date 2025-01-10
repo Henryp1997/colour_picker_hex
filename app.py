@@ -1,6 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QWidget, QPushButton, QLabel, QLineEdit, QHBoxLayout, QApplication, QDesktopWidget
-from PyQt5.QtGui import QFont
+from PyQt5.QtGui import QFont, QGuiApplication
 from PyQt5.QtCore import Qt
 from pynput.mouse import Listener, Button
 import pyautogui as pag
@@ -15,7 +15,12 @@ class MainWindow(QWidget):
         self.setWindowTitle("Colour Picker")
         resolution = QDesktopWidget().screenGeometry()          # Screen resolution
         width, height = resolution.width(), resolution.height() # Screen res width and height
-        self.setGeometry(int(0.05*width), int(0.1*height), int(0.2*width), int(0.07*height))       # x, y, width, height. Scale relative to screen
+        self.setGeometry(int(0.05*width), int(0.1*height), int(0.2*width), int(0.07*height)) # x, y, width, height. Scale relative to screen
+        screen = QGuiApplication.primaryScreen() # Get the primary screen
+        
+        # App written on screen with 96dpi and font size 14. Scale the font depending on dpi
+        QApplication.setFont(QFont("Roboto", 14 * int(96 / screen.logicalDotsPerInch())))
+
         self.setStyleSheet("background-color: #121212;")
         self.setWindowFlags(self.windowFlags() | Qt.WindowStaysOnTopHint)
 
