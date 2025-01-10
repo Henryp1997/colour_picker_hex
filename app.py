@@ -1,6 +1,6 @@
 import sys
-from PyQt5.QtWidgets import QWidget, QPushButton, QLabel, QLineEdit, QHBoxLayout, QApplication
-from PyQt5.QtGui import QFont, QPainter, QColor
+from PyQt5.QtWidgets import QWidget, QPushButton, QLabel, QLineEdit, QHBoxLayout, QApplication, QDesktopWidget
+from PyQt5.QtGui import QFont
 from PyQt5.QtCore import Qt
 from pynput.mouse import Listener, Button
 import pyautogui as pag
@@ -13,27 +13,29 @@ class MainWindow(QWidget):
 
         # Set the window properties
         self.setWindowTitle("Colour Picker")
-        self.setGeometry(100, 100, 350, 75)  # x, y, width, height
+        resolution = QDesktopWidget().screenGeometry()          # Screen resolution
+        width, height = resolution.width(), resolution.height() # Screen res width and height
+        self.setGeometry(int(0.05*width), int(0.1*height), int(0.2*width), int(0.07*height))       # x, y, width, height. Scale relative to screen
         self.setStyleSheet("background-color: #121212;")
         self.setWindowFlags(self.windowFlags() | Qt.WindowStaysOnTopHint)
 
         # Execute button
         self.button = QPushButton("Start")
         self.button.setStyleSheet("color: white; background-color: #366fc9; border: 2px solid white; border-radius: 5px")
-        self.button.setFixedWidth(100)
-        self.button.setFixedHeight(30)
+        self.button.setFixedWidth(int(0.05*width))
+        self.button.setFixedHeight(int(0.03*height))
         self.button.clicked.connect(self.execute)
 
         # Colour label
         self.label = QLabel("Hex colour:", self)
         self.label.setStyleSheet("color: white;")
-        self.label.setFixedWidth(100)
+        self.label.setFixedWidth(int(0.05*width))
 
         # Textbox to show hex colour
         self.textbox = QLineEdit()
         self.textbox.setReadOnly(True)
         self.textbox.setStyleSheet("color: white;")
-        self.textbox.setFixedWidth(90)
+        self.textbox.setFixedWidth(int(0.05*width))
         self.textbox.setFixedHeight(self.button.height())
 
         # Square icon to show actual colour
