@@ -1,6 +1,6 @@
 # colour_picker_hex
 Small app to allow the user to click anywhere on their screen and grab the hex colour from the clicked position
 
-![image](https://github.com/user-attachments/assets/25bfceb1-d8bf-432e-b3bb-8155a5e9a948)
+<img width="457" height="98" alt="Screenshot 2025-12-18 142533" src="https://github.com/user-attachments/assets/8dc59b94-6162-4e8b-b0f8-ae11f22567bc" />
 <br><br>
-![image](https://github.com/user-attachments/assets/6d8a5129-f950-4ca0-8764-fce7a682eca2)
+<img width="455" height="96" alt="Screenshot 2025-12-18 142602" src="https://github.com/user-attachments/assets/378ad599-e9f3-4edc-a4f0-86f0c3c0027c" />
